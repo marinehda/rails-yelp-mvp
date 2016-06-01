@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <strong><%= @restaurant.name %></strong>
+</h1>
+
+<p>
+  <strong>Address:</strong>
+  <%= @restaurant.address %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @restaurant.phone_number %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @restaurant.category %>
+</p>
+
+<p>
+  <strong>Reviews:</strong>
+<ul>
+<% @restaurant.reviews.each do |review| %>
+  <li>
+    <%= review.content %> (<%= review.rating %>/5)
+  </li>
+<% end %>
+</ul>
+</p>
+
+<div class="grey-card">
+<p>
+  <strong>Add a review:</strong>
+<%= render 'form_review' %>
+<p>
+</div>
+
+<%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-info" %> |
+<%= link_to 'Back', restaurants_path, class: "btn btn-info" %>
